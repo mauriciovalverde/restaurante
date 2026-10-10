@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Messenger</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>Instagram Messenger</h1>
+        <p id="account" class="muted">Carregando conta…</p>
+      </div>
+    </div>
+    <span id="demo-badge" class="badge warn" hidden>Modo demonstração</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel contacts">
+      <div class="panel-head">
+        <h2>Contatos <span id="count" class="muted"></span></h2>
+        <button id="refresh" class="ghost" type="button">Atualizar</button>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Buscar por nome ou @usuário" />
+        <label class="check">
+          <input id="select-all" type="checkbox" />
+          Selecionar todos
+        </label>
+        <label class="check">
+          <input id="only-eligible" type="checkbox" checked />
+          Só quem pode receber
+        </label>
+      </div>
+
+      <p class="hint">
+        Pela regra da Meta, só é possível enviar mensagem a quem falou com você nas últimas 24h.
+        Contatos fora dessa janela aparecem desabilitados.
+      </p>
+
+      <ul id="list" class="list" aria-live="polite"></ul>
+    </section>
+
+    <section class="panel composer">
+      <h2>Mensagem</h2>
+      <p class="muted"><strong id="selected-count">0</strong> contato(s) selecionado(s)</p>
+
+      <textarea id="message" rows="7" maxlength="1000"
+        placeholder="Olá {nome}! Hoje temos prato do dia especial…"></textarea>
+      <div class="meta">
+        <span class="muted">Use <code>{nome}</code> ou <code>{usuario}</code> para personalizar.</span>
+        <span id="chars" class="muted">0/1000</span>
+      </div>
+
+      <button id="send" class="primary" type="button" disabled>Enviar para selecionados</button>
+      <button id="stop" class="ghost" type="button" hidden>Parar envio</button>
+
+      <div id="progress-wrap" hidden>
+        <div class="progress"><div id="progress-bar"></div></div>
+        <p id="progress-text" class="muted"></p>
+      </div>
+
+      <h3>Histórico de envio</h3>
+      <ul id="log" class="log"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
